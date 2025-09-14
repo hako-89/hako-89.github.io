@@ -19,6 +19,7 @@ import { getTranslateLanguageFromConfig } from "./utils/language-utils";
 
 // 定义站点语言
 const SITE_LANG = "zh_CN"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
+
 const _NAME = "hAko";
 const _SUBTITLE_1 = "未来ガジェット研究所";
 const _SUBTITLE_2 = "El. Psy. Kongroo~!";
@@ -269,7 +270,7 @@ export const navBarConfig: NavBarConfig = {
 export const profileConfig: ProfileConfig = {
 	avatar: "assets/images/avatar.jpg", // 相对于 /src 目录。如果以 '/' 开头，则相对于 /public 目录
 	name: _NAME,
-	bio: `${_SUBTITLE_2}<br />${_SUBTITLE_5}`,
+	bio: `${_SUBTITLE_2}<br>${_SUBTITLE_5}`,
 	links: [
 		{
 			name: "Bilibli",
