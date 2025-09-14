@@ -204,22 +204,22 @@ export const navBarConfig: NavBarConfig = {
 			children: [
 				{
 					name: "GitHub",
-					url: "https://github.com/matsuzaka-yuki/Mizuki",
+					url: "https://github.com/hako-89",
 					external: true,
 					icon: "fa6-brands:github",
 				},
 				{
 					name: "Bilibili",
-					url: "https://space.bilibili.com/701864046",
+					url: "https://space.bilibili.com/3494360580622974",
 					external: true,
 					icon: "fa6-brands:bilibili",
 				},
-				{
-					name: "Gitee",
-					url: "https://gitee.com/matsuzakayuki/Mizuki",
-					external: true,
-					icon: "mdi:git",
-				},
+				// {
+				// 	name: "Gitee",
+				// 	url: "https://gitee.com/matsuzakayuki/Mizuki",
+				// 	external: true,
+				// 	icon: "mdi:git",
+				// },
 			],
 		},
 		{
@@ -275,23 +275,23 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "Bilibli",
 			icon: "fa6-brands:bilibili",
-			url: "https://space.bilibili.com/701864046",
+			url: "https://space.bilibili.com/3494360580622974",
 		},
-		{
-			name: "Gitee",
-			icon: "mdi:git",
-			url: "https://gitee.com/matsuzakayuki",
-		},
+		// {
+		// 	name: "Gitee",
+		// 	icon: "mdi:git",
+		// 	url: "https://gitee.com/matsuzakayuki",
+		// },
 		{
 			name: "GitHub",
 			icon: "fa6-brands:github",
-			url: "https://github.com/matsuzaka-yuki",
+			url: "https://github.com/hako-89",
 		},
-		{
-			name: "Discord",
-			icon: "fa6-brands:discord",
-			url: "https://discord.gg/MqW6TcQtVM",
-		},
+		// {
+		// 	name: "Discord",
+		// 	icon: "fa6-brands:discord",
+		// 	url: "https://discord.gg/MqW6TcQtVM",
+		// },
 	],
 };
 
@@ -332,7 +332,7 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 };
 
 export const footerConfig: FooterConfig = {
-	enable: false, // 是否启用Footer HTML注入功能
+	enable: true, // 是否启用Footer HTML注入功能
 };
 
 // 直接编辑 FooterConfig.html 文件来添加备案号等自定义内容
@@ -453,7 +453,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 };
 
 export const sakuraConfig: SakuraConfig = {
-	enable: false, // 默认关闭樱花特效
+	enable: true, // 默认关闭樱花特效
 	sakuraNum: 21, // 樱花数量
 	limitTimes: -1, // 樱花越界限制次数，-1为无限循环
 	size: {
@@ -484,16 +484,16 @@ export const pioConfig: import("./types/config").PioConfig = {
 	mode: "draggable", // 默认为可拖拽模式
 	hiddenOnMobile: true, // 默认在移动设备上隐藏
 	dialog: {
-		welcome: "Welcome to Mizuki Website!", // 欢迎词
+		welcome: "欢迎来到未来道具研究所！", // 欢迎词
 		touch: [
-			"What are you doing?",
-			"Stop touching me!",
+			"你在干什么？",
+			"再摸我就报警了！",
 			"HENTAI!",
-			"Don't bully me like that!",
+			"不可以这样欺负我啦！",
 		], // 触摸提示
-		home: "Click here to go back to homepage!", // 首页提示
-		skin: ["Want to see my new outfit?", "The new outfit looks great~"], // 换装提示
-		close: "QWQ See you next time~", // 关闭提示
+		home: "点击这里回到首页！", // 首页提示
+		skin: ["想看看我的新衣服吗？", "新衣服真漂亮~"], // 换装提示
+		close: "QWQ 下次再见吧~", // 关闭提示
 		link: "https://github.com/matsuzaka-yuki/Mizuki", // 关于链接
 	},
 };
