@@ -29,7 +29,7 @@ import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 export default defineConfig({
 	site: "https://hako-98.github.io/",
 
-	base: "/",
+	base: "/hako_web",
 	trailingSlash: "always",
 	integrations: [
 		tailwind({
