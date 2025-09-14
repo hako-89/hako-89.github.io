@@ -27,9 +27,9 @@ import { remarkMermaid } from "./src/plugins/remark-mermaid.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 // https://astro.build/config
 export default defineConfig({
-	site: "https://hako-98.github.io/",
+	site: "https://hako-89.github.io/",
 
-	base: "/hako_web",
+	base: "/",
 	trailingSlash: "always",
 	integrations: [
 		tailwind({
