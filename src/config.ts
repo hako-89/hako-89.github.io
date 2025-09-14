@@ -19,10 +19,17 @@ import { LinkPreset } from "./types/config";
 
 // 定义站点语言
 const SITE_LANG = "zh_CN"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
+const _NAME = "hAko";
+const _SUBTITLE_1 = "未来ガジェット研究所";
+const _SUBTITLE_2 = "El. Psy. Kongroo~!";
+const _SUBTITLE_3 = "すべてはシュタインズ・ゲートの選択である";
+const _SUBTITLE_4 =
+	"忘れないで，あなたはどの世界線にいてもひとりじゃない，私がいる";
+const _SUBTITLE_5 = "ヽ(*ﾟдﾟ)ノ　＜　ｶｲﾊﾞｰ";
 
 export const siteConfig: SiteConfig = {
-	title: "hAko",
-	subtitle: "未来ガジェット研究所",
+	title: _NAME,
+	subtitle: _SUBTITLE_1,
 
 	lang: SITE_LANG,
 
@@ -89,10 +96,14 @@ export const siteConfig: SiteConfig = {
 			title: "—— WELCOME ——", // 主页横幅主标题
 
 			subtitle: [
-				"未来ガジェット研究所",
-				"Carousel Highlight: Innovation",
-				"Carousel Focus: User Experience",
-				"Carousel Spot: Core Advantages",
+				_SUBTITLE_1,
+				_SUBTITLE_2,
+				_SUBTITLE_3,
+				_SUBTITLE_4,
+				_SUBTITLE_5,
+				// "Carousel Highlight: Innovation",
+				// "Carousel Focus: User Experience",
+				// "Carousel Spot: Core Advantages",
 			],
 			typewriter: {
 				enable: true, // 启用副标题打字机效果
@@ -250,8 +261,8 @@ export const navBarConfig: NavBarConfig = {
 
 export const profileConfig: ProfileConfig = {
 	avatar: "assets/images/avatar.png", // 相对于 /src 目录。如果以 '/' 开头，则相对于 /public 目录
-	name: "Mizuki",
-	bio: "The world is big, you have to go and see",
+	name: _NAME,
+	bio: _SUBTITLE_2,
 	links: [
 		{
 			name: "Bilibli",
@@ -298,7 +309,7 @@ export const commentConfig: CommentConfig = {
 
 export const announcementConfig: AnnouncementConfig = {
 	title: "Announcement", // 公告标题
-	content: "Welcome to my blog! This is a sample announcement.", // 公告内容
+	content: _SUBTITLE_3, // 公告内容
 	closable: true, // 允许用户关闭公告
 	link: {
 		enable: true, // 启用链接
