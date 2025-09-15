@@ -231,7 +231,8 @@ export const navBarConfig: NavBarConfig = {
 				LinkPreset.Anime,
 				LinkPreset.Diary,
 				{
-					name: "Gallery",
+					// name: "Gallery",
+					name: "画廊",
 					url: "/albums/",
 					icon: "material-symbols:photo-library",
 				},
