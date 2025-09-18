@@ -6,6 +6,7 @@ import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
 import MainGridLayout from "../layouts/MainGridLayout.astro";
 
+<<<<<<< HEAD
 // Bangumi API配置
 const BANGUMI_USER_ID = siteConfig.bangumi?.userId || "your-user-id"; // 用户ID
 const BANGUMI_API_BASE = "https://api.bgm.tv";
@@ -148,8 +149,42 @@ if (ANIME_MODE === "local") {
 	animeList = [...watchingList, ...completedList];
 }
 
+=======
+>>>>>>> 2f0a32b (新增动画《琉璃的宝石》《新 吊带袜天使》)
 // 追番数据
 const animeList = [
+	{
+		title: "琉璃的宝石",
+		status: "watching",
+		rating: 10,
+		cover: "assets/anime/琉璃的宝石.webp",
+		description: "美少女干什么都有人看之挖矿篇",
+		episodes: "13 episodes",
+		year: "2025",
+		genre: ["治愈", "矿物", "科普"],
+		studio: "StudioBind",
+		link: "https://bangumi.tv/subject/512190",
+		progress: 11,
+		totalEpisodes: 13,
+		startDate: "2025-07",
+		endDate: "2025-09",
+	},
+	{
+		title: "新 吊带袜天使",
+		status: "watching",
+		rating: 8,
+		cover: "assets/anime/p&s.webp",
+		description: "p&s",
+		episodes: "13 episodes",
+		year: "2025",
+		genre: ["恶搞", "吊带袜天使"],
+		studio: "TRIGGER",
+		link: "https://bangumi.tv/subject/390555",
+		progress: 11,
+		totalEpisodes: 13,
+		startDate: "2025-07",
+		endDate: "2025-09",
+	},
 	{
 		title: "小城日常",
 		status: "watching",
@@ -169,7 +204,7 @@ const animeList = [
 	{
 		title: "我怎么可能成为你的恋人，不行不行！(※不是不可能！？)",
 		status: "watching",
-		rating: 9,
+		rating: 8,
 		cover: "assets/anime/mulimuli.webp",
 		description: "恋人不行",
 		episodes: "12 episodes",
