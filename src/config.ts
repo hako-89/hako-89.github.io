@@ -20,7 +20,7 @@ import { getTranslateLanguageFromConfig } from "./utils/language-utils";
 // 定义站点语言
 const SITE_LANG = "zh_CN"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
 
-const _NAME = "hAko";
+const _NAME = "hAk0";
 const _SUBTITLE_1 = "未来ガジェット研究所";
 const _SUBTITLE_2 = "El. Psy. Kongroo~!";
 const _SUBTITLE_3 = "すべてはシュタインズ・ゲートの選択である";
@@ -222,6 +222,12 @@ export const navBarConfig: NavBarConfig = {
 					external: true,
 					icon: "fa6-brands:bilibili",
 				},
+				{
+					name: "Bangumi",
+					url: "https://bangumi.tv/user/1150720",
+					external: true,
+					icon: "fa6-brands:bangumi",
+				},
 				// {
 				// 	name: "Gitee",
 				// 	url: "https://gitee.com/matsuzakayuki/Mizuki",
@@ -295,6 +301,11 @@ export const profileConfig: ProfileConfig = {
 			name: "GitHub",
 			icon: "fa6-brands:github",
 			url: "https://github.com/hako-89",
+		},
+		{
+			name: "Bangumi",
+			icon: "fa6-brands:bangumi",
+			url: "https://bangumi.tv/user/1150720",
 		},
 		// {
 		// 	name: "Discord",
