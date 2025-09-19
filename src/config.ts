@@ -226,7 +226,7 @@ export const navBarConfig: NavBarConfig = {
 					name: "Bangumi",
 					url: "https://bangumi.tv/user/1150720",
 					external: true,
-					icon: "my:bangumi",
+					icon: "my/bangumi",
 				},
 				// {
 				// 	name: "Gitee",
@@ -288,6 +288,11 @@ export const profileConfig: ProfileConfig = {
 	bio: `${_SUBTITLE_2}<br>${_SUBTITLE_5}`,
 	links: [
 		{
+			name: "GitHub",
+			icon: "fa6-brands:github",
+			url: "https://github.com/hako-89",
+		},
+		{
 			name: "Bilibli",
 			icon: "fa6-brands:bilibili",
 			url: "https://space.bilibili.com/3494360580622974",
@@ -298,13 +303,8 @@ export const profileConfig: ProfileConfig = {
 		// 	url: "https://gitee.com/matsuzakayuki",
 		// },
 		{
-			name: "GitHub",
-			icon: "fa6-brands:github",
-			url: "https://github.com/hako-89",
-		},
-		{
 			name: "Bangumi",
-			icon: "my:bangumi",
+			icon: "my/bangumi",
 			url: "https://bangumi.tv/user/1150720",
 		},
 		// {
