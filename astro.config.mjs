@@ -15,7 +15,6 @@ import remarkDirective from "remark-directive"; /* Handle directives */
 import remarkGithubAdmonitionsToDirectives from "remark-github-admonitions-to-directives";
 import remarkMath from "remark-math";
 import remarkSectionize from "remark-sectionize";
-import { FileSystemIconLoader } from "unplugin-icons/loaders"; //导入本地图标
 import { expressiveCodeConfig } from "./src/config.ts";
 import { pluginCustomCopyButton } from "./src/plugins/expressive-code/custom-copy-button.js";
 import { pluginLanguageBadge } from "./src/plugins/expressive-code/language-badge.ts";
@@ -59,16 +58,13 @@ export default defineConfig({
 			},
 		}),
 		icon({
+			iconDir: "./src/assets/icons", // astro-icon 永远以「项目根目录」为基准
+			customCollections: ["my"], // 👈 手动注册本地图标集
 			include: {
-				"preprocess: vitePreprocess(),": ["*"],
 				"fa6-brands": ["*"],
 				"fa6-regular": ["*"],
 				"fa6-solid": ["*"],
 				mdi: ["*"],
-				my: ["*"], // 我的本地素材
-			},
-			customCollections: {
-				my: FileSystemIconLoader("assets/icons"), // ← 再加这一段
 			},
 		}),
 		expressiveCode({
