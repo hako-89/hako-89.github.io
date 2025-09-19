@@ -15,6 +15,7 @@ import remarkDirective from "remark-directive"; /* Handle directives */
 import remarkGithubAdmonitionsToDirectives from "remark-github-admonitions-to-directives";
 import remarkMath from "remark-math";
 import remarkSectionize from "remark-sectionize";
+import { FileSystemIconLoader } from "unplugin-icons/loaders"; //导入本地图标
 import { expressiveCodeConfig } from "./src/config.ts";
 import { pluginCustomCopyButton } from "./src/plugins/expressive-code/custom-copy-button.js";
 import { pluginLanguageBadge } from "./src/plugins/expressive-code/language-badge.ts";
@@ -25,6 +26,7 @@ import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
 import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
 import { remarkMermaid } from "./src/plugins/remark-mermaid.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
+
 // https://astro.build/config
 export default defineConfig({
 	site: "https://hako-89.github.io/",
@@ -63,6 +65,10 @@ export default defineConfig({
 				"fa6-regular": ["*"],
 				"fa6-solid": ["*"],
 				mdi: ["*"],
+				my: ["*"], // 我的本地素材
+			},
+			customCollections: {
+				my: FileSystemIconLoader("assets/icons"), // ← 再加这一段
 			},
 		}),
 		expressiveCode({
