@@ -226,7 +226,7 @@ export const navBarConfig: NavBarConfig = {
 					name: "Bangumi",
 					url: "https://bangumi.tv/user/1150720",
 					external: true,
-					icon: "fa6-brands:bangumi",
+					icon: "src/assets/images/bangumi_icon.png",
 				},
 				// {
 				// 	name: "Gitee",
@@ -304,7 +304,7 @@ export const profileConfig: ProfileConfig = {
 		},
 		{
 			name: "Bangumi",
-			icon: "fa6-brands:bangumi",
+			icon: "src/assets/images/bangumi_icon.png",
 			url: "https://bangumi.tv/user/1150720",
 		},
 		// {
