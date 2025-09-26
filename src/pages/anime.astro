@@ -6,7 +6,6 @@ import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
 import MainGridLayout from "../layouts/MainGridLayout.astro";
 
-<<<<<<< HEAD
 // Bangumi API配置
 const BANGUMI_USER_ID = siteConfig.bangumi?.userId || "your-user-id"; // 用户ID
 const BANGUMI_API_BASE = "https://api.bgm.tv";
@@ -149,123 +148,121 @@ if (ANIME_MODE === "local") {
 	animeList = [...watchingList, ...completedList];
 }
 
-=======
->>>>>>> 2f0a32b (新增动画《琉璃的宝石》《新 吊带袜天使》)
 // 追番数据
-const animeList = [
-	{
-		title: "不良少女",
-		status: "completed",
-		rating: 7,
-		cover: "assets/anime/badgirl.webp",
-		description: "badgirl",
-		episodes: "12 episodes",
-		year: "2025",
-		genre: ["校园", "日常", "搞笑", "百合"],
-		studio: "Bridge",
-		link: "https://bangumi.tv/subject/501614",
-		progress: 12,
-		totalEpisodes: 12,
-		startDate: "2025-07",
-		endDate: "2025-09",
-	}, // 不良少女
-	{
-		title: "彻夜之歌 第二季",
-		status: "completed",
-		rating: 8,
-		cover: "assets/anime/彻夜之歌2.webp",
-		description: "彻夜之歌2",
-		episodes: "12 episodes",
-		year: "2025",
-		genre: ["恋爱", "奇幻"],
-		studio: "LIDENFILMS",
-		link: "https://bangumi.tv/subject/484623",
-		progress: 1,
-		totalEpisodes: 12,
-		startDate: "2025-07",
-		endDate: "2025-09",
-	}, // 彻夜之歌 第二季
-	{
-		title: "更衣人偶坠入爱河 第二季",
-		status: "completed",
-		rating: 9,
-		cover: "assets/anime/更衣人偶坠入爱河2.webp",
-		description: "更衣人偶2",
-		episodes: "12 episodes",
-		year: "2025",
-		genre: ["校园", "恋爱", "日常", "cosplay"],
-		studio: "CloverWorks",
-		link: "https://bangumi.tv/subject/398951",
-		progress: 12,
-		totalEpisodes: 12,
-		startDate: "2025-07",
-		endDate: "2025-09",
-	}, // 更衣人偶坠入爱河 第二季
-	{
-		title: "琉璃的宝石",
-		status: "watching",
-		rating: 9,
-		cover: "assets/anime/琉璃的宝石.webp",
-		description: "美少女干什么都有人看之挖矿篇",
-		episodes: "13 episodes",
-		year: "2025",
-		genre: ["治愈", "矿物", "科普"],
-		studio: "StudioBind",
-		link: "https://bangumi.tv/subject/512190",
-		progress: 11,
-		totalEpisodes: 13,
-		startDate: "2025-07",
-		endDate: "2025-09",
-	}, // 琉璃的宝石 11/13
-	{
-		title: "新 吊带袜天使",
-		status: "watching",
-		rating: 8,
-		cover: "assets/anime/p&s.webp",
-		description: "p&s",
-		episodes: "13 episodes",
-		year: "2025",
-		genre: ["恶搞", "吊带袜天使"],
-		studio: "TRIGGER",
-		link: "https://bangumi.tv/subject/390555",
-		progress: 11,
-		totalEpisodes: 13,
-		startDate: "2025-07",
-		endDate: "2025-09",
-	}, // 新 吊带袜天使 11/13
-	{
-		title: "小城日常",
-		status: "watching",
-		rating: 8,
-		cover: "assets/anime/city.webp",
-		description: "city",
-		episodes: "13 episodes",
-		year: "2025",
-		genre: ["日常", "电波"],
-		studio: "京阿尼",
-		link: "https://bangumi.tv/subject/514358",
-		progress: 12,
-		totalEpisodes: 13,
-		startDate: "2025-07",
-		endDate: "2025-09",
-	}, // 小城日常 12/13
-	{
-		title: "我怎么可能成为你的恋人，不行不行！(※不是不可能！？)",
-		status: "completed",
-		rating: 8,
-		cover: "assets/anime/mulimuli.webp",
-		description: "恋人不行",
-		episodes: "12 episodes",
-		year: "2025",
-		genre: ["喜剧", "百合", "校园"],
-		studio: "studio MOTHER",
-		link: "https://bangumi.tv/subject/524707",
-		progress: 12,
-		totalEpisodes: 12,
-		startDate: "2025-07",
-		endDate: "2025-09",
-	}, // 我怎么可能成为你的恋人，不行不行！(※不是不可能！？)
-];
+// const animeList = [
+// 	{
+// 		title: "不良少女",
+// 		status: "completed",
+// 		rating: 7,
+// 		cover: "assets/anime/badgirl.webp",
+// 		description: "badgirl",
+// 		episodes: "12 episodes",
+// 		year: "2025",
+// 		genre: ["校园", "日常", "搞笑", "百合"],
+// 		studio: "Bridge",
+// 		link: "https://bangumi.tv/subject/501614",
+// 		progress: 12,
+// 		totalEpisodes: 12,
+// 		startDate: "2025-07",
+// 		endDate: "2025-09",
+// 	}, // 不良少女
+// 	{
+// 		title: "彻夜之歌 第二季",
+// 		status: "completed",
+// 		rating: 8,
+// 		cover: "assets/anime/彻夜之歌2.webp",
+// 		description: "彻夜之歌2",
+// 		episodes: "12 episodes",
+// 		year: "2025",
+// 		genre: ["恋爱", "奇幻"],
+// 		studio: "LIDENFILMS",
+// 		link: "https://bangumi.tv/subject/484623",
+// 		progress: 1,
+// 		totalEpisodes: 12,
+// 		startDate: "2025-07",
+// 		endDate: "2025-09",
+// 	}, // 彻夜之歌 第二季
+// 	{
+// 		title: "更衣人偶坠入爱河 第二季",
+// 		status: "completed",
+// 		rating: 9,
+// 		cover: "assets/anime/更衣人偶坠入爱河2.webp",
+// 		description: "更衣人偶2",
+// 		episodes: "12 episodes",
+// 		year: "2025",
+// 		genre: ["校园", "恋爱", "日常", "cosplay"],
+// 		studio: "CloverWorks",
+// 		link: "https://bangumi.tv/subject/398951",
+// 		progress: 12,
+// 		totalEpisodes: 12,
+// 		startDate: "2025-07",
+// 		endDate: "2025-09",
+// 	}, // 更衣人偶坠入爱河 第二季
+// 	{
+// 		title: "琉璃的宝石",
+// 		status: "watching",
+// 		rating: 9,
+// 		cover: "assets/anime/琉璃的宝石.webp",
+// 		description: "美少女干什么都有人看之挖矿篇",
+// 		episodes: "13 episodes",
+// 		year: "2025",
+// 		genre: ["治愈", "矿物", "科普"],
+// 		studio: "StudioBind",
+// 		link: "https://bangumi.tv/subject/512190",
+// 		progress: 11,
+// 		totalEpisodes: 13,
+// 		startDate: "2025-07",
+// 		endDate: "2025-09",
+// 	}, // 琉璃的宝石 11/13
+// 	{
+// 		title: "新 吊带袜天使",
+// 		status: "watching",
+// 		rating: 8,
+// 		cover: "assets/anime/p&s.webp",
+// 		description: "p&s",
+// 		episodes: "13 episodes",
+// 		year: "2025",
+// 		genre: ["恶搞", "吊带袜天使"],
+// 		studio: "TRIGGER",
+// 		link: "https://bangumi.tv/subject/390555",
+// 		progress: 11,
+// 		totalEpisodes: 13,
+// 		startDate: "2025-07",
+// 		endDate: "2025-09",
+// 	}, // 新 吊带袜天使 11/13
+// 	{
+// 		title: "小城日常",
+// 		status: "watching",
+// 		rating: 8,
+// 		cover: "assets/anime/city.webp",
+// 		description: "city",
+// 		episodes: "13 episodes",
+// 		year: "2025",
+// 		genre: ["日常", "电波"],
+// 		studio: "京阿尼",
+// 		link: "https://bangumi.tv/subject/514358",
+// 		progress: 12,
+// 		totalEpisodes: 13,
+// 		startDate: "2025-07",
+// 		endDate: "2025-09",
+// 	}, // 小城日常 12/13
+// 	{
+// 		title: "我怎么可能成为你的恋人，不行不行！(※不是不可能！？)",
+// 		status: "completed",
+// 		rating: 8,
+// 		cover: "assets/anime/mulimuli.webp",
+// 		description: "恋人不行",
+// 		episodes: "12 episodes",
+// 		year: "2025",
+// 		genre: ["喜剧", "百合", "校园"],
+// 		studio: "studio MOTHER",
+// 		link: "https://bangumi.tv/subject/524707",
+// 		progress: 12,
+// 		totalEpisodes: 12,
+// 		startDate: "2025-07",
+// 		endDate: "2025-09",
+// 	}, // 我怎么可能成为你的恋人，不行不行！(※不是不可能！？)
+// ];
 
 // 获取状态的翻译文本和样式
 function getStatusInfo(status: string) {

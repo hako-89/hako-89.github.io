@@ -49,11 +49,11 @@ export const siteConfig: SiteConfig = {
 		ignoreTags: ["script", "style", "code", "pre"], // 翻译时忽略的 HTML 标签
 	},
 	bangumi: {
-		userId: "your-bangumi-id", // 在此处设置你的Bangumi用户ID，可以设置为 "sai" 测试
+		userId: "1150720", // 在此处设置你的Bangumi用户ID，可以设置为 "sai" 测试
 	},
 
 	anime: {
-		mode: "local", // 番剧页面模式："bangumi" 使用Bangumi API，"local" 使用本地配置
+		mode: "bangumi", // 番剧页面模式："bangumi" 使用Bangumi API，"local" 使用本地配置
 	},
 
 	banner: {
@@ -496,7 +496,7 @@ export const sakuraConfig: SakuraConfig = {
 
 // Pio 看板娘配置
 export const pioConfig: import("./types/config").PioConfig = {
-	enable: false, // 启用看板娘
+	enable: true, // 启用看板娘
 	models: ["/pio/models/pio/model.json"], // 默认模型路径
 	position: "left", // 默认位置在右侧
 	width: 280, // 默认宽度
