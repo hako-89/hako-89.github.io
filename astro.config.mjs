@@ -57,6 +57,8 @@ export default defineConfig({
 			},
 		}),
 		icon({
+			iconDir: "./src/assets/icons", // astro-icon 永远以「项目根目录」为基准
+			customCollections: ["my"], // 👈 手动注册本地图标集
 			include: {
 				"preprocess: vitePreprocess(),": ["*"],
 				"fa6-brands": ["*"],
