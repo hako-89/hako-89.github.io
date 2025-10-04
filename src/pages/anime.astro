@@ -1,11 +1,10 @@
 ---
 import ImageWrapper from "../components/misc/ImageWrapper.astro";
-import { siteConfig } from "../config";
+import { siteConfig, siteConfig } from "../config";
 import localAnimeList from "../data/anime";
 import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
 import MainGridLayout from "../layouts/MainGridLayout.astro";
-import { siteConfig } from "../config";
 
 // Bangumi API配置
 const BANGUMI_USER_ID = siteConfig.bangumi?.userId || "your-user-id"; // 用户ID
@@ -147,6 +146,14 @@ if (ANIME_MODE === "local") {
 		: [];
 
 	animeList = [...watchingList, ...completedList];
+  animeList.sort((a, b) => {
+    // 先按状态排序，watching在前
+    if (a.status !== b.status) {
+      return a.status === 'watching' ? -1 : 1;
+    }
+    // 状态相同则按时间排序，时间近的在前
+    return new Date(b.year).getTime() - new Date(a.year).getTime();
+  });
 }
 
 // 获取状态的翻译文本和样式
