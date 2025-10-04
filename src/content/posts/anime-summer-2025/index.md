@@ -5,7 +5,7 @@ published: 2025-09-28
 pinned: false
 description: "A personal reflection and review of the anime I followed during Summer 2025."
 image: "./cover.png"
-tags: ["original", "anime", "reflection", "summer-2025"]
+tags: ["anime", "reflection", "summer-2025"]
 category: anime
 # licenseName: 0
 author: "hAk0"
