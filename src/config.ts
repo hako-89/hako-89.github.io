@@ -18,11 +18,19 @@ import { LinkPreset } from "./types/config";
 // 移除i18n导入以避免循环依赖
 
 // 定义站点语言
-const SITE_LANG = "en"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
+const SITE_LANG = "zh_CN"; // 语言代码，例如：'en', 'zh_CN', 'ja' 等。
+
+const _NAME = "hAk0";
+const _SUBTITLE_1 = "未来ガジェット研究所";
+const _SUBTITLE_2 = "El. Psy. Kongroo~!";
+const _SUBTITLE_3 = "すべてはシュタインズ・ゲートの選択である";
+const _SUBTITLE_4 =
+	"忘れないで，あなたはどの世界線にいてもひとりじゃない，私がいる";
+const _SUBTITLE_5 = "ヽ(*ﾟдﾟ)ノ　＜　ｶｲﾊﾞｰ";
 
 export const siteConfig: SiteConfig = {
-	title: "Mizuki",
-	subtitle: "One demo website",
+	title: _NAME,
+	subtitle: _SUBTITLE_1,
 
 	lang: SITE_LANG,
 
@@ -33,11 +41,11 @@ export const siteConfig: SiteConfig = {
 
 	
 	bangumi: {
-		userId: "your-bangumi-id", // 在此处设置你的Bangumi用户ID，可以设置为 "sai" 测试
+		userId: "1150720", // 在此处设置你的Bangumi用户ID，可以设置为 "sai" 测试
 	},
 
 	anime: {
-		mode: "local", // 番剧页面模式："bangumi" 使用Bangumi API，"local" 使用本地配置
+		mode: "bangumi", // 番剧页面模式："bangumi" 使用Bangumi API，"local" 使用本地配置
 	},
 
 	banner: {
@@ -54,6 +62,10 @@ export const siteConfig: SiteConfig = {
 				"/assets/desktop-banner/d6.webp",
 				"/assets/desktop-banner/d7.webp",
 				"/assets/desktop-banner/d8.webp",
+				"/assets/desktop-banner/d9.webp",
+				"/assets/desktop-banner/d10.webp",
+				"/assets/desktop-banner/d11.webp",
+				"/assets/desktop-banner/d12.webp",
 			], // 桌面横幅图片
 			mobile: [
 				"/assets/mobile-banner/m1.webp",
@@ -86,13 +98,14 @@ export const siteConfig: SiteConfig = {
 
 		homeText: {
 			enable: true, // 在主页显示自定义文本
-			title: "Beautiful Mizuki!", // 主页横幅主标题
+			title: "—— WELCOME ——", // 主页横幅主标题
 
 			subtitle: [
-				"A Showcase Demo Site",
-				"Carousel Highlight: Innovation",
-				"Carousel Focus: User Experience",
-				"Carousel Spot: Core Advantages",
+				_SUBTITLE_1,
+				_SUBTITLE_2,
+				_SUBTITLE_3,
+				_SUBTITLE_4,
+				_SUBTITLE_5,
 			],
 			typewriter: {
 				enable: true, // 启用副标题打字机效果
@@ -131,10 +144,10 @@ export const siteConfig: SiteConfig = {
 	// 字体配置
 	font: {
 		zenMaruGothic: {
-			enable: true, // 启用全局圆体适合日语和英语，对中文适配一般
+			enable: false, // 启用全局圆体适合日语和英语，对中文适配一般
 		},
 		hanalei: {
-			enable: false, // 启用 Hanalei 字体作为全局字体，适合中文去使用
+			enable: true, // 启用 Hanalei 字体作为全局字体，适合中文去使用
 		},
 	},
 	showLastModified: true, // 控制“上次编辑”卡片显示的开关
@@ -151,6 +164,10 @@ export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 			"/assets/desktop-banner/d6.webp",
 			"/assets/desktop-banner/d7.webp",
 			"/assets/desktop-banner/d8.webp",
+			"/assets/desktop-banner/d9.webp",
+			"/assets/desktop-banner/d10.webp",
+			"/assets/desktop-banner/d11.webp",
+			"/assets/desktop-banner/d12.webp",
 		], // 桌面横幅图片
 		mobile: [
 			"/assets/mobile-banner/m1.webp",
@@ -185,22 +202,29 @@ export const navBarConfig: NavBarConfig = {
 			children: [
 				{
 					name: "GitHub",
-					url: "https://github.com/matsuzaka-yuki/Mizuki",
+					url: "https://github.com/hako-89",
 					external: true,
 					icon: "fa6-brands:github",
 				},
 				{
+					name: "Gitee",
+					url: "https://gitee.com/hako-89",
+					external: true,
+					icon: "mdi:git",
+				},
+				{
 					name: "Bilibili",
-					url: "https://space.bilibili.com/701864046",
+					url: "https://space.bilibili.com/3494360580622974",
 					external: true,
 					icon: "fa6-brands:bilibili",
 				},
 				{
-					name: "Gitee",
-					url: "https://gitee.com/matsuzakayuki/Mizuki",
+					name: "Bangumi",
+					url: "https://bangumi.tv/user/1150720",
 					external: true,
-					icon: "mdi:git",
+					icon: "my/bangumi",
 				},
+
 			],
 		},
 		{
@@ -211,7 +235,8 @@ export const navBarConfig: NavBarConfig = {
 				LinkPreset.Anime,
 				LinkPreset.Diary,
 				{
-					name: "Gallery",
+					// name: "Gallery",
+					name: "画廊",
 					url: "/albums/",
 					icon: "material-symbols:photo-library",
 				},
@@ -249,29 +274,29 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/avatar.png", // 相对于 /src 目录。如果以 '/' 开头，则相对于 /public 目录
-	name: "Mizuki",
-	bio: "The world is big, you have to go and see",
+	avatar: "assets/images/avatar.jpg", // 相对于 /src 目录。如果以 '/' 开头，则相对于 /public 目录
+	name: _NAME,
+	bio: _SUBTITLE_5,
 	links: [
 		{
-			name: "Bilibli",
-			icon: "fa6-brands:bilibili",
-			url: "https://space.bilibili.com/701864046",
+			name: "GitHub",
+			icon: "fa6-brands:github",
+			url: "https://github.com/hako-89",
 		},
 		{
 			name: "Gitee",
 			icon: "mdi:git",
-			url: "https://gitee.com/matsuzakayuki",
+			url: "https://gitee.com/hako-89",
 		},
 		{
-			name: "GitHub",
-			icon: "fa6-brands:github",
-			url: "https://github.com/matsuzaka-yuki",
+			name: "Bilibli",
+			icon: "fa6-brands:bilibili",
+			url: "https://space.bilibili.com/3494360580622974",
 		},
 		{
-			name: "Discord",
-			icon: "fa6-brands:discord",
-			url: "https://discord.gg/MqW6TcQtVM",
+			name: "Bangumi",
+			icon: "my/bangumi",
+			url: "https://bangumi.tv/user/1150720",
 		},
 	],
 };
@@ -298,7 +323,7 @@ export const commentConfig: CommentConfig = {
 
 export const announcementConfig: AnnouncementConfig = {
 	title: "Announcement", // 公告标题
-	content: "Welcome to my blog! This is a sample announcement.", // 公告内容
+	content: _SUBTITLE_3, // 公告内容
 	closable: true, // 允许用户关闭公告
 	link: {
 		enable: true, // 启用链接
@@ -313,7 +338,7 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 };
 
 export const footerConfig: FooterConfig = {
-	enable: false, // 是否启用Footer HTML注入功能
+	enable: true, // 是否启用Footer HTML注入功能
 };
 
 // 直接编辑 FooterConfig.html 文件来添加备案号等自定义内容
@@ -434,7 +459,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 };
 
 export const sakuraConfig: SakuraConfig = {
-	enable: false, // 默认关闭樱花特效
+	enable: true, // 默认关闭樱花特效
 	sakuraNum: 21, // 樱花数量
 	limitTimes: -1, // 樱花越界限制次数，-1为无限循环
 	size: {
@@ -465,16 +490,16 @@ export const pioConfig: import("./types/config").PioConfig = {
 	mode: "draggable", // 默认为可拖拽模式
 	hiddenOnMobile: true, // 默认在移动设备上隐藏
 	dialog: {
-		welcome: "Welcome to Mizuki Website!", // 欢迎词
+		welcome: "欢迎来到未来道具研究所！", // 欢迎词
 		touch: [
-			"What are you doing?",
-			"Stop touching me!",
+			"你在干什么？",
+			"再摸我就报警了！",
 			"HENTAI!",
-			"Don't bully me like that!",
+			"不可以这样欺负我啦！",
 		], // 触摸提示
-		home: "Click here to go back to homepage!", // 首页提示
-		skin: ["Want to see my new outfit?", "The new outfit looks great~"], // 换装提示
-		close: "QWQ See you next time~", // 关闭提示
+		home: "点击这里回到首页！", // 首页提示
+		skin: ["想看看我的新衣服吗？", "新衣服真漂亮~"], // 换装提示
+		close: "QWQ 下次再见吧~", // 关闭提示
 		link: "https://github.com/matsuzaka-yuki/Mizuki", // 关于链接
 	},
 };
