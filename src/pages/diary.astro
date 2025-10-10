@@ -1,18 +1,56 @@
 ---
+import { Client } from "@notionhq/client";
 import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
 import MainGridLayout from "../layouts/MainGridLayout.astro";
 
 // 示例即刻短文数据
-const moments = [
-	{
-		id: 1,
-		content:
-			"The falling speed of cherry blossoms is five centimeters per second!",
-		date: "2025-01-15T10:30:00Z",
-		images: ["/images/diary/sakura.jpg", "/images/diary/1.jpg"],
-	},
-];
+// const moments = [
+// 	{
+// 		id: 1,
+// 		content:
+// 			"The falling speed of cherry blossoms is five centimeters per second!",
+// 		date: "2025-01-15T10:30:00Z",
+// 		images: ["/images/diary/sakura.jpg", "/images/diary/1.jpg"],
+// 	},
+// ];
+
+// Notion API 集成
+const NOTION_TOKEN = import.meta.env.NOTION_TOKEN;
+const NOTION_DATABASE_ID = import.meta.env.NOTION_DATABASE_ID;
+const notion = new Client({ auth: NOTION_TOKEN });
+
+// 获取数据库的 data_source_id
+const database = await notion.databases.retrieve({
+	database_id: NOTION_DATABASE_ID,
+});
+
+const dataSourceId = database.data_sources[0]?.id;
+
+if (!dataSourceId) {
+	throw new Error("No data source found in this database.");
+}
+
+// 使用 dataSources.query 查询页面
+const response = await notion.dataSources.query({
+	data_source_id: dataSourceId,
+	sorts: [{ timestamp: "created_time", direction: "descending" }], // 最新在前
+	page_size: 5, // ← 只拿 5 条
+});
+
+// 解析页面数据
+const moments = response.results
+	.map((page: any) => ({
+		id: page.id,
+		title: page.properties.Name?.title?.[0]?.plain_text || "Untitled",
+		date: page.properties.Date?.date?.start || "",
+		tag: page.properties.Tag?.multi_select?.map((tag: any) => tag.name) || [],
+		content: page.properties.Content?.rich_text?.[0]?.plain_text || "",
+		images: page.properties.Image?.files?.map((f: any) => f.file?.url) || [],
+	}))
+	.sort((a, b) => (a.date > b.date ? -1 : a.date < b.date ? 1 : 0));
+
+console.log(moments);
 
 // 时间格式化函数
 function formatTime(dateString: string): string {
