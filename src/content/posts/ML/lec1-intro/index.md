@@ -1,10 +1,10 @@
 ---
 title: "机器学习第一讲：绪论(introduction)"
-published: 2025-9-22
+published: 2025-09-22
 pinned: false
 description: "A personal reflection and review of Lecture 1 -- Introduction -- of Machine Learning."
 image: "./cover.png"
-tags: ["ml", "reflection"]
+tags: ["ml", "intro", "reflection"]
 category: ml
 author: "hAk0"
 draft: false
