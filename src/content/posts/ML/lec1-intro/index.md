@@ -1,6 +1,7 @@
 ---
 title: "机器学习第一讲：绪论(introduction)"
 published: 2025-09-22
+updated: 2025-10-13
 pinned: false
 description: "A personal reflection and review of Lecture 1 -- Introduction -- of Machine Learning."
 image: "./cover.png"
@@ -10,19 +11,40 @@ author: "hAk0"
 draft: false
 ---
 
+## 知识大纲
+
+- **什么是机器学习？**
+  - 经典定义（Samuel, Mitchell）
+  - 核心地位与应用领域
+- **机器学习的核心框架**
+  - 学习的组成要素
+  - 损失函数与优化目标
+- **学习的基本原则**
+  - 奥卡姆剃刀原则
+  - 无免费午餐定理（NFL）
+- **模型选择与评估**
+  - 交叉验证（Cross-Validation）
+  - 算法与超参数联合优化（CASH）
+- **K-最近邻（KNN）算法详解**
+  - 算法思想与归纳偏好
+  - 关键组件：距离度量、特征归一化、k值选择
+  - 算法变种：加权KNN、KD树、最近质心分类器
+- **维度灾难（Curse of Dimensionality）**
+  - 现象与数学解释
+  - 严重后果与应对策略
+- **KNN算法总结**
+  - 适用场景、优缺点与实践建议
+
+---
+
 ## 一、什么是机器学习？
 
 ### 1. 定义
 
-- **Arthur Samuel (1959)**：  
-  机器学习是研究如何让计算机无需显式编程，就能从数据中学习并自动提升性能的学科。
-
-- **Tom Mitchell (1997) 形式化定义**：  
-  若一个计算机程序在任务 $T$ 上的性能 $P$，随经验 $E$ 的增加而提升，则称该程序从经验 $E$ 中学习了任务 $T$。  
-  数学表达：  
-  $$P(y|x) \text{ 在任务 } T \text{ 上通过经验 } E \text{ 得到提升}$$
-
----
+- **Arthur Samuel (1959)**：
+  机器学习是研究如何让计算机**无需显式编程**，就能从数据中学习并自动提升性能的学科。
+- **Tom Mitchell (1997) 形式化定义**：
+  一个程序从**经验** $E$ 中学习**任务** $T$，如果它在 $T$ 上的**性能** $P$ 随着 $E$ 的增加而提升。
 
 ### 2. 核心地位
 
@@ -36,44 +58,47 @@ draft: false
 
 ### 1. 学习的组成要素
 
+机器学习的形式化框架包含以下核心组件：
+
 | 要素         | 符号          | 描述                                                                 |
 |--------------|---------------|----------------------------------------------------------------------|
 | 输入空间     | $\mathcal{X}$ | 特征向量 $\mathbf{x} \in \mathbb{R}^d$                               |
 | 输出空间     | $\mathcal{Y}$ | 标签 $y$（分类：$\{0,1\}$，回归：$\mathbb{R}$）                     |
-| 目标函数     | $f: \mathcal{X} \to \mathcal{Y}$ | 理想映射（未知，又称"最优分类器"）           |
-| 训练数据     | $(\mathbf{x}_1, y_1), \dots, (\mathbf{x}_n, y_n)$ | 已知样本对                         |
-| 假设空间     | $\mathcal{H}$ | 候选函数集合 $h: \mathcal{X} \to \mathcal{Y}$（参数化为 $h(\mathbf{x};\theta)$） |
-| 学习算法     | $A$           | 从 $\mathcal{H}$ 中选择最优 $h$ 的策略                               |
-
-**最终目标**：找到 $h^* \approx f$，其在测试集上的误差称为**贝叶斯误差**（Bayes Error）。
+| 目标函数     | $f: \mathcal{X} \to \mathcal{Y}$ | 未知的理想映射，也称为**最优分类器**。其在测试集上的误差为**贝叶斯误差**（Bayes Error）。           |
+| 训练数据     | $(\mathbf{x}_i, y_i)$ | 已知样本对                         |
+| 假设空间     | $\mathcal{H}$ | 一个由候选函数 $h: \mathcal{X} \to \mathcal{Y}$ 构成的集合，通常由参数 $\theta$ 参数化，记为 $h(\mathbf{x}; \theta)$。 |
+| 学习算法     | $A$           |  一个从假设空间 $\mathcal{H}$ 中，根据训练数据选择最终假设 $h^*$ 的过程。                               |
 
 ### 2. 损失函数（Loss Function）
 
-- **回归任务**：  
-  $$L(y, h(\mathbf{x})) = (y - h(\mathbf{x}))^2$$
-- **分类任务**：  
-  $$L(y, h(\mathbf{x})) = \mathbb{I}(y \neq h(\mathbf{x}))$$
-- **训练目标**：  
-  $$\min_{h \in \mathcal{H}} \frac{1}{n} \sum_{i=1}^n L(h(\mathbf{x}_i), y_i)$$
+损失函数衡量预测值与真实值之间的差异，是训练问题的核心。
 
-- Virtually every machine learning algorithm has this form, just specify
-  - What is the **hypothesis function**?
-  - What is the **loss function**?
-  - How do we solve the **training problem**?
+- **回归任务**（Regression）：  
+  $$L(y, h(\mathbf{x})) = (y - h(\mathbf{x}))^2$$
+- **分类任务**（Classification）：  
+  $$L(y, h(\mathbf{x})) = \mathbb{I}(y \neq h(\mathbf{x}))$$
 
 ### 3. 学习算法
 
-- **优化目标**：最小化经验风险（Empirical Risk）  
+- **优化目标**：找到一个假设 $h$，使其在训练集上的**经验风险**（Empirical Risk）最小化  
   $$R_{\text{emp}}(h) = \frac{1}{n} \sum_{i=1}^n L(h(\mathbf{x}_i), y_i)$$
 - **核心挑战**：  
   - 过拟合（Overfitting）：模型复杂度过高，学习训练数据噪声  
   - 欠拟合（Underfitting）：模型复杂度过低，无法捕捉数据规律
+
+> Virtually every machine learning algorithm has this form, just specify
+>
+> - What is the **hypothesis function**?
+> - What is the **loss function**?
+> - How do we solve the **training problem**?
 
 ---
 
 ## 三、学习的基本原则
 
 ### 1. 奥卡姆剃刀原则（Occam's Razor）
+
+> “如无必要，勿增实体。” —— 威廉·奥卡姆
 
 - **核心思想**：在所有能解释数据的模型中，选择最简单的模型
 - **数学表达**：  
@@ -82,6 +107,8 @@ draft: false
 - **实践意义**：避免过拟合，提升泛化能力
 
 ### 2. 无免费午餐定理（No Free Lunch Theorem）
+
+> “所有模型都是错的，但有些是有用的。” —— George Box
 
 - **核心结论**：  
   没有普遍最优的学习算法，所有算法在所有问题上的平均性能相同
