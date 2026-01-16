@@ -74,6 +74,14 @@ if (ANIME_MODE === "local") {
 			animeList = [];
 		}
 	}
+	animeList.sort((a, b) => {
+    // 先按状态排序，watching在前
+    if (a.status !== b.status) {
+      return a.status === 'watching' ? -1 : 1;
+    }
+    // 状态相同则按时间排序，时间近的在前
+    return new Date(b.year).getTime() - new Date(a.year).getTime();
+  	});	
 }
 
 function getStatusInfo(status: string) {
