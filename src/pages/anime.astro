@@ -74,14 +74,10 @@ if (ANIME_MODE === "local") {
 			animeList = [];
 		}
 	}
-	animeList.sort((a, b) => {
-    // 先按状态排序，watching在前
-    if (a.status !== b.status) {
-      return a.status === 'watching' ? -1 : 1;
-    }
-    // 状态相同则按时间排序，时间近的在前
+    animeList.sort((a, b) => {
+    // 按时间排序，时间近的在前
     return new Date(b.year).getTime() - new Date(a.year).getTime();
-  	});	
+    });	
 	// 截断各个部分，最多保留 100 条
 	const WATCHING_LIMIT = 10;
 	const COMPLETED_LIMIT = 20;
