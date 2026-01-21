@@ -74,6 +74,33 @@ if (ANIME_MODE === "local") {
 			animeList = [];
 		}
 	}
+    animeList.sort((a, b) => {
+    // 按时间排序，时间近的在前
+    return new Date(b.year).getTime() - new Date(a.year).getTime();
+    });	
+	// 截断各个部分，最多保留 100 条
+	const WATCHING_LIMIT = 10;
+	const COMPLETED_LIMIT = 20;
+	const PLANNED_LIMIT = 5;
+	const ONHOLD_LIMIT = 5;
+	const DROPPED_LIMIT = 5;
+	// 从已排序的 animeList 中分别取各状态（slice 会自动处理小于 limit 的情况）	
+	const watchingItems = animeList.filter((a) => a.status === "watching").slice(0, WATCHING_LIMIT);
+	const completedItems = animeList.filter((a) => a.status === "completed").slice(0, COMPLETED_LIMIT);
+	const plannedItems = animeList.filter((a) => a.status === "planned").slice(0, PLANNED_LIMIT);
+	const onholdItems = animeList.filter((a) => a.status === "onhold").slice(0, ONHOLD_LIMIT);
+	const droppedItems = animeList.filter((a) => a.status === "dropped").slice(0, DROPPED_LIMIT);
+	// 将五个分组按顺序合并；并保留任何未列出的状态作为后备
+	animeList = [
+	...watchingItems,
+	...completedItems,
+	...plannedItems,
+	...onholdItems,
+	...droppedItems,
+	...animeList.filter(
+		(a) => !["watching", "completed", "planned", "onhold", "dropped"].includes(a.status),
+	),
+	];
 }
 
 function getStatusInfo(status: string) {
